@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	
+	<title>Josue Lima</title>
+	<subtitle>Hello, I am Josué Lima, a Brazilian Software Engineer living in Waterloo - Canada.
+</subtitle>
+	<link href="http://localhost:4000/atom.xml" rel="self" />
+	<link href="http://localhost:4000/" />
+	<id>http://localhost:4000/</id>
+	<updated>2016-03-15T12:58:39-04:00</updated>
+  
+	<entry>
+		<title>&quot;Canadá busca profissionais qualificados para viver no País&quot; - OK, eu vim.</title>
+		<link href="http://localhost:4000/canada/2016/03/15/mudei-para-o-canada.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/canada/2016/03/15/mudei-para-o-canada.html"/>
+		<id>http://localhost:4000/canada/2016/03/15/mudei-para-o-canada.html</id>
+		<updated>2016-03-15T08:49:11-04:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Provavelmente voce ja viu varios posts com esse titulo no Facebook, Linkedin, Youtube, etc.</p>
+
+<p>To add new posts, simply add a file in the <code class="highlighter-rouge">_posts</code> directory that follows the convention <code class="highlighter-rouge">YYYY-MM-DD-name-of-post.ext</code> and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.</p>
+
+<p>Jekyll also offers powerful support for code snippets:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="k">def</span> <span class="nf">print_hi</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+  <span class="nb">puts</span> <span class="s2">"Hi, </span><span class="si">#{</span><span class="nb">name</span><span class="si">}</span><span class="s2">"</span>
+<span class="k">end</span>
+<span class="n">print_hi</span><span class="p">(</span><span class="s1">'Tom'</span><span class="p">)</span>
+<span class="c1">#=&gt; prints 'Hi, Tom' to STDOUT.</span></code></pre></figure>
+
+<p>Check out the <a href="http://jekyllrb.com/docs/home">Jekyll docs</a> for more info on how to get the most out of Jekyll. File all bugs/feature requests at <a href="https://github.com/jekyll/jekyll">Jekyll’s GitHub repo</a>. If you have questions, you can ask them on <a href="https://talk.jekyllrb.com/">Jekyll Talk</a>.</p>
+
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/canada/2016/03/15/mudei-para-o-canada.html">"Canadá busca profissionais qualificados para viver no País" - OK, eu vim.</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+	<entry>
+		<title>Styles from Strata</title>
+		<link href="http://localhost:4000/styles/2016/02/08/styles.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/styles/2016/02/08/styles.html"/>
+		<id>http://localhost:4000/styles/2016/02/08/styles.html</id>
+		<updated>2016-02-08T00:00:00-05:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<!-- One -->
+	<section id="one">
+		<header class="major">
+			<h2>Ipsum lorem dolor aliquam ante commodo<br />
+			magna sed accumsan arcu neque.</h2>
+		</header>
+		<p>Accumsan orci faucibus id eu lorem semper. Eu ac iaculis ac nunc nisi lorem vulputate lorem neque cubilia ac in adipiscing in curae lobortis tortor primis integer massa adipiscing id nisi accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque cubilia.</p>
+		<ul class="actions">
+			<li><a href="#" class="button">Learn More</a></li>
+		</ul>
+	</section>
+
+<!-- Two -->
+	<section id="two">
+		<h2>Recent Work</h2>
+		<div class="row">
+			<article class="6u 12u$(xsmall) work-item">
+				<a href="/images/fulls/01.jpg" class="image fit thumb"><img src="/images/thumbs/01.jpg" alt="" /></a>
+				<h3>Magna sed consequat tempus</h3>
+				<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+			</article>
+			<article class="6u$ 12u$(xsmall) work-item">
+				<a href="/images/fulls/02.jpg" class="image fit thumb"><img src="/images/thumbs/02.jpg" alt="" /></a>
+				<h3>Ultricies lacinia interdum</h3>
+				<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+			</article>
+			<article class="6u 12u$(xsmall) work-item">
+				<a href="/images/fulls/03.jpg" class="image fit thumb"><img src="/images/thumbs/03.jpg" alt="" /></a>
+				<h3>Tortor metus commodo</h3>
+				<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+			</article>
+			<article class="6u$ 12u$(xsmall) work-item">
+				<a href="/images/fulls/04.jpg" class="image fit thumb"><img src="/images/thumbs/04.jpg" alt="" /></a>
+				<h3>Quam neque phasellus</h3>
+				<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+			</article>
+			<article class="6u 12u$(xsmall) work-item">
+				<a href="/images/fulls/05.jpg" class="image fit thumb"><img src="/images/thumbs/05.jpg" alt="" /></a>
+				<h3>Nunc enim commodo aliquet</h3>
+				<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+			</article>
+			<article class="6u$ 12u$(xsmall) work-item">
+				<a href="/images/fulls/06.jpg" class="image fit thumb"><img src="/images/thumbs/06.jpg" alt="" /></a>
+				<h3>Risus ornare lacinia</h3>
+				<p>Lorem ipsum dolor sit amet nisl sed nullam feugiat.</p>
+			</article>
+		</div>
+		<ul class="actions">
+			<li><a href="#" class="button">Full Portfolio</a></li>
+		</ul>
+	</section>
+
+<!-- Three -->
+	<section id="three">
+		<h2>Get In Touch</h2>
+		<p>Accumsan pellentesque commodo blandit enim arcu non at amet id arcu magna. Accumsan orci faucibus id eu lorem semper nunc nisi lorem vulputate lorem neque lorem ipsum dolor.</p>
+		<div class="row">
+			<div class="8u 12u$(small)">
+				<form method="post" action="#">
+					<div class="row uniform 50%">
+						<div class="6u 12u$(xsmall)"><input type="text" name="name" id="name" placeholder="Name" /></div>
+						<div class="6u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
+						<div class="12u$"><textarea name="message" id="message" placeholder="Message" rows="4"></textarea></div>
+					</div>
+				</form>
+				<ul class="actions">
+					<li><input type="submit" value="Send Message" /></li>
+				</ul>
+			</div>
+			<div class="4u$ 12u$(small)">
+				<ul class="labeled-icons">
+					<li>
+						<h3 class="icon fa-home"><span class="label">Address</span></h3>
+						1234 Somewhere Rd.<br />
+						Nashville, TN 00000<br />
+						United States
+					</li>
+					<li>
+						<h3 class="icon fa-mobile"><span class="label">Phone</span></h3>
+						000-000-0000
+					</li>
+					<li>
+						<h3 class="icon fa-envelope-o"><span class="label">Email</span></h3>
+						<a href="#">hello@untitled.tld</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</section>
+
+<!-- Four -->
+
+	<section id="four">
+		<h2>Elements</h2>
+
+		<section>
+			<h4>Text</h4>
+			<p>This is <b>bold</b> and this is <strong>strong</strong>. This is <i>italic</i> and this is <em>emphasized</em>.
+			This is <sup>superscript</sup> text and this is <sub>subscript</sub> text.
+			This is <u>underlined</u> and this is code: <code>for (;;) { ... }</code>. Finally, <a href="#">this is a link</a>.</p>
+			<hr />
+			<header>
+				<h4>Heading with a Subtitle</h4>
+				<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+			</header>
+			<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+			<header>
+				<h5>Heading with a Subtitle</h5>
+				<p>Lorem ipsum dolor sit amet nullam id egestas urna aliquam</p>
+			</header>
+			<p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing blandit tempus accumsan.</p>
+			<hr />
+			<h2>Heading Level 2</h2>
+			<h3>Heading Level 3</h3>
+			<h4>Heading Level 4</h4>
+			<h5>Heading Level 5</h5>
+			<h6>Heading Level 6</h6>
+			<hr />
+			<h5>Blockquote</h5>
+			<blockquote>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan faucibus. Vestibulum ante ipsum primis in faucibus lorem ipsum dolor sit amet nullam adipiscing eu felis.</blockquote>
+			<h5>Preformatted</h5>
+			<pre><code>i = 0;
+
+while (!deck.isInOrder()) {
+print 'Iteration ' + i;
+deck.shuffle();
+i++;
+}
+
+print 'It took ' + i + ' iterations to sort the deck.';</code></pre>
+		</section>
+
+		<section>
+			<h4>Lists</h4>
+			<div class="row">
+				<div class="6u 12u$(xsmall)">
+					<h5>Unordered</h5>
+					<ul>
+						<li>Dolor pulvinar etiam magna etiam.</li>
+						<li>Sagittis adipiscing lorem eleifend.</li>
+						<li>Felis enim feugiat dolore viverra.</li>
+					</ul>
+					<h5>Alternate</h5>
+					<ul class="alt">
+						<li>Dolor pulvinar etiam magna etiam.</li>
+						<li>Sagittis adipiscing lorem eleifend.</li>
+						<li>Felis enim feugiat dolore viverra.</li>
+					</ul>
+				</div>
+				<div class="6u$ 12u$(xsmall)">
+					<h5>Ordered</h5>
+					<ol>
+						<li>Dolor pulvinar etiam magna etiam.</li>
+						<li>Etiam vel felis at lorem sed viverra.</li>
+						<li>Felis enim feugiat dolore viverra.</li>
+						<li>Dolor pulvinar etiam magna etiam.</li>
+						<li>Etiam vel felis at lorem sed viverra.</li>
+						<li>Felis enim feugiat dolore viverra.</li>
+					</ol>
+					<h5>Icons</h5>
+					<ul class="icons">
+						<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+						<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+						<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+						<li><a href="#" class="icon fa-github"><span class="label">Github</span></a></li>
+						<li><a href="#" class="icon fa-dribbble"><span class="label">Dribbble</span></a></li>
+						<li><a href="#" class="icon fa-tumblr"><span class="label">Tumblr</span></a></li>
+					</ul>
+				</div>
+			</div>
+			<h5>Actions</h5>
+			<ul class="actions">
+				<li><a href="#" class="button special">Default</a></li>
+				<li><a href="#" class="button">Default</a></li>
+			</ul>
+			<ul class="actions small">
+				<li><a href="#" class="button special small">Small</a></li>
+				<li><a href="#" class="button small">Small</a></li>
+			</ul>
+			<div class="row">
+				<div class="6u 12u$(small)">
+					<ul class="actions vertical">
+						<li><a href="#" class="button special">Default</a></li>
+						<li><a href="#" class="button">Default</a></li>
+					</ul>
+				</div>
+				<div class="6u$ 12u$(small)">
+					<ul class="actions vertical small">
+						<li><a href="#" class="button special small">Small</a></li>
+						<li><a href="#" class="button small">Small</a></li>
+					</ul>
+				</div>
+				<div class="6u 12u$(small)">
+					<ul class="actions vertical">
+						<li><a href="#" class="button special fit">Default</a></li>
+						<li><a href="#" class="button fit">Default</a></li>
+					</ul>
+				</div>
+				<div class="6u$ 12u$(small)">
+					<ul class="actions vertical small">
+						<li><a href="#" class="button special small fit">Small</a></li>
+						<li><a href="#" class="button small fit">Small</a></li>
+					</ul>
+				</div>
+			</div>
+		</section>
+
+		<section>
+			<h4>Table</h4>
+			<h5>Default</h5>
+			<div class="table-wrapper">
+				<table>
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Item One</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item Two</td>
+							<td>Vis ac commodo adipiscing arcu aliquet.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item Three</td>
+							<td> Morbi faucibus arcu accumsan lorem.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item Four</td>
+							<td>Vitae integer tempus condimentum.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item Five</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2"></td>
+							<td>100.00</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+
+			<h5>Alternate</h5>
+			<div class="table-wrapper">
+				<table class="alt">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Description</th>
+							<th>Price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Item One</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item Two</td>
+							<td>Vis ac commodo adipiscing arcu aliquet.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item Three</td>
+							<td> Morbi faucibus arcu accumsan lorem.</td>
+							<td>29.99</td>
+						</tr>
+						<tr>
+							<td>Item Four</td>
+							<td>Vitae integer tempus condimentum.</td>
+							<td>19.99</td>
+						</tr>
+						<tr>
+							<td>Item Five</td>
+							<td>Ante turpis integer aliquet porttitor.</td>
+							<td>29.99</td>
+						</tr>
+					</tbody>
+					<tfoot>
+						<tr>
+							<td colspan="2"></td>
+							<td>100.00</td>
+						</tr>
+					</tfoot>
+				</table>
+			</div>
+		</section>
+
+		<section>
+			<h4>Buttons</h4>
+			<ul class="actions">
+				<li><a href="#" class="button special">Special</a></li>
+				<li><a href="#" class="button">Default</a></li>
+			</ul>
+			<ul class="actions">
+				<li><a href="#" class="button big">Big</a></li>
+				<li><a href="#" class="button">Default</a></li>
+				<li><a href="#" class="button small">Small</a></li>
+			</ul>
+			<ul class="actions fit">
+				<li><a href="#" class="button special fit">Fit</a></li>
+				<li><a href="#" class="button fit">Fit</a></li>
+			</ul>
+			<ul class="actions fit small">
+				<li><a href="#" class="button special fit small">Fit + Small</a></li>
+				<li><a href="#" class="button fit small">Fit + Small</a></li>
+			</ul>
+			<ul class="actions">
+				<li><a href="#" class="button special icon fa-download">Icon</a></li>
+				<li><a href="#" class="button icon fa-download">Icon</a></li>
+			</ul>
+			<ul class="actions">
+				<li><span class="button special disabled">Special</span></li>
+				<li><span class="button disabled">Default</span></li>
+			</ul>
+		</section>
+
+		<section>
+			<h4>Form</h4>
+			<form method="post" action="#">
+				<div class="row uniform 50%">
+					<div class="6u 12u$(xsmall)">
+						<input type="text" name="demo-name" id="demo-name" value="" placeholder="Name" />
+					</div>
+					<div class="6u$ 12u$(xsmall)">
+						<input type="email" name="demo-email" id="demo-email" value="" placeholder="Email" />
+					</div>
+					<div class="12u$">
+						<div class="select-wrapper">
+							<select name="demo-category" id="demo-category">
+								<option value="">- Category -</option>
+								<option value="1">Manufacturing</option>
+								<option value="1">Shipping</option>
+								<option value="1">Administration</option>
+								<option value="1">Human Resources</option>
+							</select>
+						</div>
+					</div>
+					<div class="4u 12u$(small)">
+						<input type="radio" id="demo-priority-low" name="demo-priority" checked>
+						<label for="demo-priority-low">Low Priority</label>
+					</div>
+					<div class="4u 12u$(small)">
+						<input type="radio" id="demo-priority-normal" name="demo-priority">
+						<label for="demo-priority-normal">Normal Priority</label>
+					</div>
+					<div class="4u$ 12u(small)">
+						<input type="radio" id="demo-priority-high" name="demo-priority">
+						<label for="demo-priority-high">High Priority</label>
+					</div>
+					<div class="6u 12u$(small)">
+						<input type="checkbox" id="demo-copy" name="demo-copy">
+						<label for="demo-copy">Email me a copy of this message</label>
+					</div>
+					<div class="6u$ 12u$(small)">
+						<input type="checkbox" id="demo-human" name="demo-human" checked>
+						<label for="demo-human">I am a human and not a robot</label>
+					</div>
+					<div class="12u$">
+						<textarea name="demo-message" id="demo-message" placeholder="Enter your message" rows="6"></textarea>
+					</div>
+					<div class="12u$">
+						<ul class="actions">
+							<li><input type="submit" value="Send Message" class="special" /></li>
+							<li><input type="reset" value="Reset" /></li>
+						</ul>
+					</div>
+				</div>
+			</form>
+		</section>
+
+		<section>
+			<h4>Image</h4>
+			<h5>Fit</h5>
+			<div class="box alt">
+				<div class="row 50% uniform">
+					<div class="12u$"><span class="image fit"><img src="/images/fulls/05.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="/images/thumbs/01.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="/images/thumbs/02.jpg" alt="" /></span></div>
+					<div class="4u$"><span class="image fit"><img src="/images/thumbs/03.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="/images/thumbs/04.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="/images/thumbs/05.jpg" alt="" /></span></div>
+					<div class="4u$"><span class="image fit"><img src="/images/thumbs/06.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="/images/thumbs/03.jpg" alt="" /></span></div>
+					<div class="4u"><span class="image fit"><img src="/images/thumbs/02.jpg" alt="" /></span></div>
+					<div class="4u$"><span class="image fit"><img src="/images/thumbs/01.jpg" alt="" /></span></div>
+				</div>
+			</div>
+			<h5>Left &amp; Right</h5>
+			<p><span class="image left"><img src="/images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+			<p><span class="image right"><img src="/images/avatar.jpg" alt="" /></span>Fringilla nisl. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent. Donec accumsan interdum nisi, quis tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent tincidunt felis sagittis eget. tempus euismod. Vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing accumsan eu faucibus. Integer ac pellentesque praesent.</p>
+		</section>
+
+	</section>
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/styles/2016/02/08/styles.html">Styles from Strata</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+	<entry>
+		<title>Lorem Ipsum</title>
+		<link href="http://localhost:4000/testing/2016/02/07/Lorem.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/testing/2016/02/07/Lorem.html"/>
+		<id>http://localhost:4000/testing/2016/02/07/Lorem.html</id>
+		<updated>2016-02-07T00:00:00-05:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<h3 id="lorem-ipsum-dolor-sit-amet-consectetur-adipiscing-elit-morbi-cursus-fringilla-dui-donec-laoreet-maximus-elit-mauris-ullamcorper-condimentum-lobortis-donec-maximus-mi-vitae-iaculis-placerat-ligula-mi-maximus-lectus-ac-varius-mi-nulla-id-neque-quisque-porta-eros-nisi-eu-fringilla-urna-dictum-vitae">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi cursus fringilla dui. Donec laoreet maximus elit. Mauris ullamcorper condimentum lobortis. Donec maximus, mi vitae iaculis placerat, ligula mi maximus lectus, ac varius mi nulla id neque. Quisque porta eros nisi, eu fringilla urna dictum vitae.</h3>
+
+<p><img src="/preview.jpg" class="fit image" /></p>
+
+<p>Vestibulum id metus eu nisl sodales consectetur. Phasellus et ultrices lacus.</p>
+
+<p>Curabitur orci turpis, egestas placerat velit eget, dictum pellentesque ipsum. Suspendisse potenti. Suspendisse ac maximus arcu. Sed ut mattis ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum eleifend odio vitae varius aliquam. Quisque ac pretium nisi. Curabitur tempus urna ac ultrices commodo.</p>
+
+<p>Curabitur iaculis est at mattis mattis. Aliquam erat volutpat. Etiam vitae cursus quam. Nunc ultricies nunc non lorem fringilla cursus. Etiam dapibus libero ac turpis accumsan pulvinar. Sed auctor velit eget mi consequat bibendum. Aliquam interdum purus eget metus pretium ullamcorper.</p>
+
+<p>Pellentesque feugiat ex non ligula commodo, eget varius tortor pellentesque. Pellentesque id tortor felis. Cras fringilla ante eget orci laoreet, non consequat urna suscipit. Pellentesque luctus ac nulla vitae porttitor. Proin sed tortor quis magna efficitur efficitur a id leo. Donec efficitur augue et laoreet maximus. Ut semper egestas porttitor. Phasellus sagittis vulputate sem at laoreet.</p>
+
+<p>Sed lobortis urna ut mi volutpat, sit amet euismod sapien tincidunt. Nulla facilisi. Pellentesque quis tempus neque. Mauris dictum ac sapien nec congue. In hac habitasse platea dictumst. Duis id pellentesque nisl. Morbi eget massa magna.</p>
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/testing/2016/02/07/Lorem.html">Lorem Ipsum</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+	<entry>
+		<title>This post demonstrates post content styles</title>
+		<link href="http://localhost:4000/styles/2014/02/12/this-post-demonstrates-post-content-styles.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/styles/2014/02/12/this-post-demonstrates-post-content-styles.html"/>
+		<id>http://localhost:4000/styles/2014/02/12/this-post-demonstrates-post-content-styles.html</id>
+		<updated>2014-02-12T00:00:00-05:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.</p>
+
+<h2 id="some-great-heading-h2">Some great heading (h2)</h2>
+
+<p>Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu.</p>
+
+<p>Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
+
+<h2 id="another-great-heading-h2">Another great heading (h2)</h2>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt. Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit.</p>
+
+<h3 id="some-great-subheading-h3">Some great subheading (h3)</h3>
+
+<p>Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum. In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum.</p>
+
+<p>Phasellus et hendrerit mauris. Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.</p>
+
+<h3 id="some-great-subheading-h3-1">Some great subheading (h3)</h3>
+
+<p>Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
+
+<blockquote>
+  <p>This quote will change your life. It will reveal the secrets of the universe, and all the wonders of humanity. Don’t misuse it.</p>
+</blockquote>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce bibendum neque eget nunc mattis eu sollicitudin enim tincidunt.</p>
+
+<h3 id="some-great-subheading-h3-2">Some great subheading (h3)</h3>
+
+<p>Vestibulum lacus tortor, ultricies id dignissim ac, bibendum in velit. Proin convallis mi ac felis pharetra aliquam. Curabitur dignissim accumsan rutrum.</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;html&gt;</span>
+  <span class="nt">&lt;head&gt;</span>
+  <span class="nt">&lt;/head&gt;</span>
+  <span class="nt">&lt;body&gt;</span>
+    <span class="nt">&lt;p&gt;</span>Hello, World!<span class="nt">&lt;/p&gt;</span>
+  <span class="nt">&lt;/body&gt;</span>
+<span class="nt">&lt;/html&gt;</span>
+</code></pre>
+</div>
+
+<p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
+
+<h4 id="you-might-want-a-sub-subheading-h4">You might want a sub-subheading (h4)</h4>
+
+<p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
+
+<p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
+
+<h4 id="but-its-probably-overkill-h4">But it’s probably overkill (h4)</h4>
+
+<p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
+
+<h3 id="oh-hai-an-unordered-list">Oh hai, an unordered list!!</h3>
+
+<p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
+
+<ul>
+  <li>First item, yo</li>
+  <li>Second item, dawg</li>
+  <li>Third item, what what?!</li>
+  <li>Fourth item, fo sheezy my neezy</li>
+</ul>
+
+<h3 id="oh-hai-an-ordered-list">Oh hai, an ordered list!!</h3>
+
+<p>In arcu magna, aliquet vel pretium et, molestie et arcu. Mauris lobortis nulla et felis ullamcorper bibendum. Phasellus et hendrerit mauris.</p>
+
+<ol>
+  <li>First item, yo</li>
+  <li>Second item, dawg</li>
+  <li>Third item, what what?!</li>
+  <li>Fourth item, fo sheezy my neezy</li>
+</ol>
+
+<h2 id="headings-are-cool-h2">Headings are cool! (h2)</h2>
+
+<p>Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc. Praesent varius interdum vehicula. Aenean risus libero, placerat at vestibulum eget, ultricies eu enim. Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
+
+<p>Praesent nulla tortor, malesuada adipiscing adipiscing sollicitudin, adipiscing eget est.</p>
+
+<p>Proin eget nibh a massa vestibulum pretium. Suspendisse eu nisl a ante aliquet bibendum quis a nunc.</p>
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/styles/2014/02/12/this-post-demonstrates-post-content-styles.html">This post demonstrates post content styles</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+	<entry>
+		<title>This one weird trick will change your life</title>
+		<link href="http://localhost:4000/sensationalism/2014/02/10/this-one-weird-trick-will-change-your-life.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/sensationalism/2014/02/10/this-one-weird-trick-will-change-your-life.html"/>
+		<id>http://localhost:4000/sensationalism/2014/02/10/this-one-weird-trick-will-change-your-life.html</id>
+		<updated>2014-02-10T00:00:00-05:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Lorem ipsum</p>
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/sensationalism/2014/02/10/this-one-weird-trick-will-change-your-life.html">This one weird trick will change your life</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+	<entry>
+		<title>Code Snippets</title>
+		<link href="http://localhost:4000/design/2012/02/10/code-snippets.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/design/2012/02/10/code-snippets.html"/>
+		<id>http://localhost:4000/design/2012/02/10/code-snippets.html</id>
+		<updated>2012-02-10T00:00:00-05:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Whenever you need to post a code snippet, use the liquid tags <code class="highlighter-rouge">highlight</code> and <code class="highlighter-rouge">endhighlight</code> like this:</p>
+
+<figure class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1"># some code goes here</span>
+<span class="nb">puts</span> <span class="s2">"Hello World!"</span></code></pre></figure>
+
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/design/2012/02/10/code-snippets.html">Code Snippets</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+	<entry>
+		<title>Hello World!</title>
+		<link href="http://localhost:4000/meta/2012/01/18/hello-world.html" />
+		<link rel="alternate" type="text/html" href="http://localhost:4000/meta/2012/01/18/hello-world.html"/>
+		<id>http://localhost:4000/meta/2012/01/18/hello-world.html</id>
+		<updated>2012-01-18T00:00:00-05:00</updated>
+		<summary>Some text.</summary>
+		<content type="xhtml">
+			<div xmlns="http://www.w3.org/1999/xhtml">
+				<p>Hello World!</p>
+
+<p>This is just a sample post.</p>
+
+<p>Vestibulum imperdiet adipiscing arcu, quis aliquam dolor condimentum dapibus. Aliquam fermentum leo aliquet quam volutpat et molestie mauris mattis. Suspendisse semper consequat velit in suscipit. Praesent blandit, mi id facilisis adipiscing, tortor tellus mollis quam, sed dignissim sapien diam ac lectus. Nunc eget ornare quam. Vivamus sit amet tortor dolor, non egestas ligula. Mauris nisi risus, semper nec blandit id, suscipit eget dolor. Sed placerat odio at erat porttitor varius. Phasellus ornare vestibulum dolor ac rhoncus. Mauris laoreet varius est eu rhoncus. Curabitur facilisis mauris eu purus pharetra vitae tincidunt nulla gravida. Duis sagittis, felis a luctus mattis, metus sem tempus velit, sit amet blandit tellus nisi id augue.</p>
+
+<p>Proin feugiat libero ac lorem mollis fermentum. Cras et lacus sodales nisl facilisis ornare. Sed dolor eros, pulvinar ac varius non, bibendum eget odio. Nulla facilisi. Pellentesque et nisi a tellus ullamcorper faucibus. Nullam sagittis tempor mi non mattis. Proin ultricies, enim sit amet bibendum tristique, ligula ante feugiat nunc, sit amet imperdiet tortor nisl et felis. Pellentesque et nisl dui, non dictum libero. Vivamus tempor ante ac leo suscipit a sodales ligula iaculis. Curabitur massa mi, semper sed bibendum eget, auctor in nulla. Quisque at mi in ligula viverra suscipit sed vitae leo.</p>
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/meta/2012/01/18/hello-world.html">Hello World!</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josue Lima</a>"</strong>.</p>
+
+			</div>
+		</content>
+		<author>
+			<name>2016</name>
+		</author>
+	</entry>
+  
+</feed>
