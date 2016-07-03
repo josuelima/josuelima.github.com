@@ -1,11 +1,15 @@
 ---
 layout: post
-title:  "\"Canadá busca profissionais qualificados para viver no País\" - OK, eu vim."
-date:   2016-03-15 12:49:11 +0000
-categories: canada
+title:  Is your polling keeping your users logged in forever?
+date:   2016-07-02 12:49:11 +0000
+categories: rails
 image:  /preview.jpg
 ---
-Provavelmente voce ja viu varios posts com esse titulo no Facebook, Linkedin, Youtube, etc.
+
+
+
+
+
 
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
