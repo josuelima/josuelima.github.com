@@ -1,14 +1,13 @@
-title: Josue Lima
+title: Josué Lima
 description: >
-  Hello, I am **Josué Lima**, a Brazilian Software Engineer
-  living in Waterloo - Canada.
+  **Josué Lima**, Software Engineer @ InTheChat
+  Programming, Infrastructure & Cloud.
 copyright: 2016
 sass:
   sass_dir: assets/sass
 url: http://localhost:4000
 disqus_shortname: josuelima
 linkedin_username: josuelima
-twitter_username: josuelima
 instagram_username: josuelima
 pinterest_username:
 flickr_username:
@@ -19,3 +18,5 @@ gems: [jekyll-paginate]
 paginate_path: "/page/:num/"
 paginate: 5
 profile_pic: "https://avatars0.githubusercontent.com/u/534050?v=3&s=460"
+markdown: kramdown
+highlighter: rouge
