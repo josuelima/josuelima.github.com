@@ -4,6 +4,7 @@ title:  Setting up a RabbitMQ Cluster on Docker
 date:   2017-04-19 12:49:11 +0000
 categories: docker rabbitmq cluster
 image:  /preview.jpg
+comments: true
 ---
 This tutorial will walk you through the steps of setting up a [RabbitMQ](https://www.rabbitmq.com/) cluster on [Docker](https://www.docker.com).
 
