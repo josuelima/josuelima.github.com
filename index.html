@@ -10,8 +10,12 @@ image: /images/fulls/01.jpg
       <span><i class="fa fa-calendar"></i> {{ post.date | date: "%d %B %Y" }}{% if post.categories %} on <i class="fa fa-tags"></i> {{ post.categories | join: ', ' }}{% endif %}</span>
     </p>
     <div>
-      {{ post.content }}
+      {{ post.excerpt }}
+
+      {% include disqus.html %}
     </div>
+
+    <p><a class="btn btn-sm btn-primary" href="{{ post.url }}" role="button">READ FULL POST</a></p>
   </section>
 {% endfor %}
 
