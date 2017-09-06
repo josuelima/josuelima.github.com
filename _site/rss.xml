@@ -7,8 +7,219 @@
 </description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/rss.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Mon, 28 Aug 2017 21:00:06 -0400</pubDate>
-    <lastBuildDate>Mon, 28 Aug 2017 21:00:06 -0400</lastBuildDate>
+    <pubDate>Tue, 05 Sep 2017 22:11:09 -0400</pubDate>
+    <lastBuildDate>Tue, 05 Sep 2017 22:11:09 -0400</lastBuildDate>
+    
+    <item>
+      <title>Deploy and run your Java application using a minimalist docker container with Gradle, Alpine and AWS</title>
+      <description><![CDATA[ <p>In this article I will write about how you can run a Java application in a minimalist Docker container using Gradle (plus configure it to use a private maven repo on AWS S3) and 8u131-jdk-alpine as a base docker image.</p>
+
+<p>For this tutorial I’m assuming that:</p>
+<ul>
+  <li>You are familiar with both Docker and RabbitMQ.</li>
+  <li>The nodes will be running on UNIX systems.</li>
+  <li>For the sake of learning our cluster will have just two nodes, so you need to servers.</li>
+  <li>Your servers responds to a FQDN. (I will be using node-1.rabbit and node-2.rabbit)</li>
+</ul>
+
+<h3 id="preparing-the-environment">Preparing the environment</h3>
+
+<p>When you are working with Docker and you have data that needs to be persistent, it is a good practice to keep it out of your container.
+RabbitMQ will save all the data to <code class="highlighter-rouge">/var/lib/rabbitmq</code> inside your container, so it’s a good idea to map this folder to a local folder on your host. Among various reasons, 
+I would say that one of the most important is: If your container goes into an inconsistent state you can just re-create the container and map the same data folder to it. Or
+if you need to backup the data or move somewhere else, just zip that folder.</p>
+
+<p>At this point all you have to do is create a folder that will soon be mapped to the RabbitMQ containers. For production deployments I usually create a <code class="highlighter-rouge">data</code> folder on the system root directory tree.
+You can pick whatever you want, but if you are on a macOS you will have some <a href="https://docs.docker.com/engine/tutorials/dockervolumes/#mount-a-host-directory-as-a-data-volume">Restrictions</a>.</p>
+
+<p>So go ahead and create your data folder on both servers (like: <code class="highlighter-rouge">mkdir /data</code>)</p>
+
+<h3 id="starting-rabbitmq-docker-containers">Starting RabbitMQ docker containers</h3>
+
+<p>Now it’s time for some Docker! First let’s start our main RabbitMQ node:</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">h</span> <span class="n">node</span><span class="o">-</span><span class="mi">1</span><span class="o">.</span><span class="na">rabbit</span>                                      <span class="err">\</span>
+           <span class="o">--</span><span class="n">name</span> <span class="n">rabbit</span>                                            <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"4369:4369"</span>                                           <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"5672:5672"</span>                                           <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"15672:15672"</span>                                         <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"25672:25672"</span>                                         <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"35197:35197"</span>                                         <span class="err">\</span>
+           <span class="o">-</span><span class="n">e</span> <span class="s">"RABBITMQ_USE_LONGNAME=true"</span>                          <span class="err">\</span>
+           <span class="o">-</span><span class="n">e</span> <span class="s">"RABBITMQ_LOGS=/var/log/rabbitmq/rabbit.log"</span>          <span class="err">\</span>
+           <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="nl">data:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rabbitmq</span> <span class="err">\</span>
+           <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="nl">logs:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rabbitmq</span> <span class="err">\</span>
+           <span class="nl">rabbitmq:</span><span class="mf">3.6</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">management</span>
+</code></pre>
+</div>
+
+<p>If you are familiar with Docker you probably know what is going on here.</p>
+<ul>
+  <li>At the first line, we define the container hostname, which will be used to identify the node.</li>
+  <li>At the second line, we define the container name.</li>
+  <li>From lines 3 to 7 we map the container ports to the host. That way we can access the container services through <code class="highlighter-rouge">node-1.rabbit:PORT</code>.
+For details about RabbitMQ ports please <a href="https://www.rabbitmq.com/clustering.html#firewall">See this</a>.</li>
+  <li>After that we define some environment variables that will be used for RabbitMQ configuration. In this case we are setting just two, you can check what else is available and useful for you <a href="https://www.rabbitmq.com/configure.html#define-environment-variables">Here</a>.
+We are setting <code class="highlighter-rouge">RABBITMQ_USE_LONGNAME=true</code> so each node will communicate with each other using their FQDN. We also set <code class="highlighter-rouge">RABBITMQ_LOGS</code> so all the output goes to a log file
+instead of STDOUT (which may be a problem in production).</li>
+  <li>At the 10th and 11th lines, we map the host directory we created for node-1 to the rabbit container.</li>
+  <li>Finally we specify which docker image we will be using. In this case RabbitMQ with the management plugin.</li>
+</ul>
+
+<p>That’s it! We have RabbitMQ running, easy eh? If you ever had to install RabbitMQ before you probably know that it can be really trick to deal with
+a lot of dependencies, Erlang/OTP and so on. You can have an idea by checking <a href="https://github.com/docker-library/rabbitmq/blob/1509b142f0b858bb9d8521397f34229cd3027c1e/3.6/debian/Dockerfile">RabbitMQ Dockerfile</a>.</p>
+
+<p>Want to see it live? Just give it a try. Open your browser and go to <code class="highlighter-rouge">http://node-1.rabbit:15672</code>. You should see something like this:</p>
+
+<p><a href="http://i.imgur.com/oKsuaTz.png"><img src="http://i.imgur.com/oKsuaTz.png" alt="" width="100%" /></a></p>
+
+<p>If check the data folder we created before you will see that RabbitMQ has created a log folder for you, and you also should have some data on it.</p>
+
+<p>Now do the same thing on the second server. Don’t forget to change the hostname on the docker run command.</p>
+<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="n">docker</span> <span class="n">run</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="n">h</span> <span class="n">node</span><span class="o">-</span><span class="mi">2</span><span class="o">.</span><span class="na">rabbit</span>                                      <span class="err">\</span>
+           <span class="o">--</span><span class="n">name</span> <span class="n">rabbit</span>                                            <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"4369:4369"</span>                                           <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"5672:5672"</span>                                           <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"15672:15672"</span>                                         <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"25672:25672"</span>                                         <span class="err">\</span>
+           <span class="o">-</span><span class="n">p</span> <span class="s">"35197:35197"</span>                                         <span class="err">\</span>
+           <span class="o">-</span><span class="n">e</span> <span class="s">"RABBITMQ_USE_LONGNAME=true"</span>                          <span class="err">\</span>
+           <span class="o">-</span><span class="n">e</span> <span class="s">"RABBITMQ_LOGS=/var/log/rabbitmq/rabbit.log"</span>          <span class="err">\</span>
+           <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="nl">data:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">rabbitmq</span> <span class="err">\</span>
+           <span class="o">-</span><span class="n">v</span> <span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="nl">logs:</span><span class="o">/</span><span class="n">var</span><span class="o">/</span><span class="n">log</span><span class="o">/</span><span class="n">rabbitmq</span> <span class="err">\</span>
+           <span class="nl">rabbitmq:</span><span class="mf">3.6</span><span class="o">.</span><span class="mi">6</span><span class="o">-</span><span class="n">management</span>
+</code></pre>
+</div>
+<p><br /></p>
+<h3 id="configuring-our-rabbitmq-cluster">Configuring our RabbitMQ cluster</h3>
+
+<h4 id="erlang-cookie">Erlang Cookie</h4>
+<p>Each RabbitMQ node should have file named <code class="highlighter-rouge">.erlang.cookie</code> located on your data folder, in our case <code class="highlighter-rouge">/data</code>. This file contains a secret (some sort of random hash),
+that will be automatically created if it doesn’t exist.
+This file is used to determine if a node can communicate with another node. The communication will be allowed if both nodes share the same
+secret on <code class="highlighter-rouge">.erlang.cookie</code> file.</p>
+
+<p>Just copy the secret on <code class="highlighter-rouge">.erlang.cookie</code> from the first node and copy it to the second node. Then restart the Docker container for the second node.</p>
+
+<h4 id="rabbitmq-browser-ui">RabbitMQ Browser UI</h4>
+
+<p><em>rabbitmq-management</em> plugin provides a browser-based UI to monitor and configure a lot of RabbitMQ features.
+You can access it at: <code class="highlighter-rouge">http://node-1.rabbit:15672</code></p>
+
+<p>Unfortunately you can’t configure 100% of your cluster through the browser interface, for that reason we are going to use only the command line tool <code class="highlighter-rouge">rabbitmqctl</code>.</p>
+
+<h4 id="disabling-guest-user">Disabling guest user</h4>
+
+<p><em>This step is not mandatory, but you definitely want to do it in production for security reasons.</em> RabbitMQ will by default create a <em>guest</em> user (password: guest).</p>
+
+<p>From now on we are going to send <code class="highlighter-rouge">rabbitmqctl</code> commands through the command line to the docker RabbitMQ containers.</p>
+
+<p>Let’s get rid of this security branch:
+<code class="highlighter-rouge">docker exec rabbit rabbitmqctl delete_user guest</code></p>
+
+<p>You just need to do this on the first node. Once we create the cluster and connect the second RabbitMQ node to it all the configurations will be copied.</p>
+
+<h4 id="rabbitmq-virtual-host">RabbitMQ virtual host</h4>
+
+<p>For learning purposes, let’s assume that we have just one virtual host <code class="highlighter-rouge">/</code>. All configuration will belong to that host. Once again, you just need to
+do this on the first node.</p>
+
+<p>Create a virtual host:
+<code class="highlighter-rouge">docker exec rabbit rabbitmqctl add_vhost /</code></p>
+
+<h4 id="create-users">Create Users</h4>
+<p>We are going to create two users. One is an administrator user, which can have access to the browser UI and make changes to the cluster configurations. 
+The second is an application level user, which will have permissions to interact with RabbitMQ at the application level. It will have read/write permissions to the <code class="highlighter-rouge">/</code> virtual host.
+You can customize it to your needs.</p>
+<div class="language-ruby highlighter-rouge"><pre class="highlight"><code><span class="c1"># Admin user</span>
+<span class="n">docker</span> <span class="nb">exec</span> <span class="n">rabbit</span> <span class="n">rabbitmqctl</span> <span class="n">add_user</span> <span class="n">josuelima</span> <span class="no">MyPassword999</span>
+<span class="n">docker</span> <span class="nb">exec</span> <span class="n">rabbit</span> <span class="n">rabbitmqctl</span> <span class="n">set_user_tags</span> <span class="n">josuelima</span> <span class="n">administrator</span>
+
+<span class="c1"># Application user</span>
+<span class="n">docker</span> <span class="nb">exec</span> <span class="n">rabbit</span> <span class="n">rabbitmqctl</span> <span class="n">add_user</span> <span class="n">ruby_app</span> <span class="no">SuperPassword000</span>
+<span class="n">docker</span> <span class="nb">exec</span> <span class="n">rabbit</span> <span class="n">rabbitmqctl</span> <span class="n">set_permissions</span> <span class="o">-</span><span class="nb">p</span> <span class="o">/</span> <span class="n">ruby_app</span> <span class="s2">".*"</span> <span class="s2">".*"</span> <span class="s2">".*"</span>
+</code></pre>
+</div>
+
+<p>Once again, you just need to do this on the first node.</p>
+
+<h4 id="creating-our-cluster">Creating our cluster</h4>
+
+<p>Now that our first node is setup, we are going to make our second node join the first and start clustering.
+All we have to this is stop the second node RabbitMQ (not the docker container) and then connect it to the first node.</p>
+
+<p>Let’s move to the second node and do it:</p>
+<div class="highlighter-rouge"><pre class="highlight"><code>docker exec rabbit rabbitmqctl stop_app
+docker exec rabbit rabbitmqctl join_cluster rabbit@node-1.rabbit
+docker exec rabbit rabbitmqctl start_app
+</code></pre>
+</div>
+
+<p>Great! Now the second node will copy all the settings from the first node and we should have our cluster running.
+You can check it in the browser UI or using the command line.</p>
+
+<p>If you access the browser UI at <code class="highlighter-rouge">http://node-1.rabbit:15672</code> or <code class="highlighter-rouge">http://node-2.rabbit:15672</code> and login with the administrator user we just created before, 
+you should see something like this:</p>
+
+<p><a href="http://i.imgur.com/mkPkwGS.png"><img src="http://i.imgur.com/mkPkwGS.png" alt="" width="100%" /></a></p>
+
+<p>On the command line you can do: <code class="highlighter-rouge">docker exec rabbit rabbitmqctl cluster_status</code></p>
+
+<p>That’s it! Now you have a RabbitMQ Cluster running with Docker. If you want to add more nodes to it just create a new RabbitMQ Docker container and connect it to the cluster.</p>
+
+<h3 id="queues-behaviour">Queues behaviour</h3>
+
+<p>Now that we have our cluster running it’s time to think about how we want it to behave.
+<em>By default, queues within a RabbitMQ cluster are located on a single node (the node on which they were first declared).</em> <strong>It is really important to understand this.</strong></p>
+
+<p>What it means is that your queues will be distributed among your cluster nodes. Is this the kind of scneario you want? When is it a good idea?</p>
+
+<h4 id="distributed-queues">Distributed Queues</h4>
+
+<p>A good use for distributed Queues is when you have really high I/O rates for your queues and want to distribute the load across all the nodes.
+Have in mind that a queue will live in one only node, and if one node goes down all the queues living on that node will be unavailable until it’s back up.</p>
+
+<p>If this is the scenario you want, you are good to go. Distributed Queues are default.</p>
+
+<p>I would also recommend you having a look at <a href="http://www.haproxy.org">HAProxy Load Balancer</a>, or if you are on AWS <a href="https://aws.amazon.com/elasticloadbalancing/">AWS Elastic Load Balancing</a>. It becomes really useful on a distributed queues scenario, where you have a lot of nodes.</p>
+
+<h4 id="mirrored-queues">Mirrored Queues</h4>
+
+<p>You can also have Mirrored Queues, which is a kind of replica-set. In this situation all the nodes will just be a copy of each other. All the messages published
+to a queue are replicated to all the cluster nodes.</p>
+
+<p>This is very useful when you need high availability for your queues. That way, if a node goes down you still have all your queues available in the other nodes.</p>
+
+<p>To setup mirrored queues you just need to set a policy to your queues to make them <em>high available</em>.</p>
+
+<p><code class="highlighter-rouge">docker exec rabbit rabbitmqctl set_policy ha "." '{"ha-mode":"all"}'</code></p>
+
+<p>In this example we set the policy named <code class="highlighter-rouge">ha</code> so all queues <code class="highlighter-rouge">.</code> will be high available in all nodes <code class="highlighter-rouge"><span class="p">{</span><span class="nt">"ha-mode"</span><span class="p">:</span><span class="s2">"all"</span><span class="p">}</span></code>.</p>
+
+<p>You can have various configurations for High Available queues, check the <a href="https://www.rabbitmq.com/ha.html">Documentation</a>.</p>
+
+<h3 id="conclusion">Conclusion</h3>
+
+<p>Here you got the concepts of setting up a RabbitMQ Cluster on Docker. There’s way more that you can do to improve your cluster implementation, like RAM Nodes, Firewall Nodes, Partition, Synchronization and so on. I’ve listed below two important links:</p>
+
+<ul>
+  <li><a href="https://www.rabbitmq.com/clustering.html">RabbitMQ Clustering docs: https://www.rabbitmq.com/clustering.html</a></li>
+  <li><a href="https://www.rabbitmq.com/ha.html">Mirrored Queues and High Availability: https://www.rabbitmq.com/ha.html</a></li>
+</ul>
+
+ 
+<br />
+<hr />
+<p>You’ve just read <strong>"<a href="http://localhost:4000/docker/java/2017/09/05/java-docker-gradle.html">Deploy and run your Java application using a minimalist docker container with Gradle, Alpine and AWS</a>"</strong> on <strong>"<a href="http://localhost:4000/">Josué Lima</a>"</strong>.</p>
+ ]]></description>
+      <pubDate>Tue, 05 Sep 2017 17:51:11 -0400</pubDate>
+      <link>http://localhost:4000/docker/java/2017/09/05/java-docker-gradle.html</link>
+      <guid isPermaLink="true">http://localhost:4000/docker/java/2017/09/05/java-docker-gradle.html</guid>
+      
+      <category>docker</category>
+      
+      <category>java</category>
+      
+    </item>
     
     <item>
       <title>Setting up a RabbitMQ Cluster on Docker</title>
